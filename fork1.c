@@ -6,8 +6,8 @@ int main()
 {
    int cpid = fork();
    if (cpid == 0)
-      while(1) putchar('x');
-   else
-      while(1) putc('o', stdout);
+       printf("Hello I am child\n");
+   else 
+       printf("Hello I am parent\n");
    return 0;
 }

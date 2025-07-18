@@ -1,23 +1,17 @@
-/*
-*  Proves that both parent and child have their own copy of variables
-*/
-
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 
-int main()
+int main(int argc, char *argv[])
 {
-   int i,cpid, ctr=0;
-   cpid = fork();
-   if (cpid == 0){
-      ctr = 100;
-      for (i = 0; i< 3; i++)
-         printf("Child counter is:%d\n", ctr++);
+   if(argc!=2){
+      printf("Must enter one agrument (an integer)\n");
+      exit(1);
    }
-   else{
-      for(i = 0; i< 3; i++)
-         printf("Parent counter is:%d\n",ctr++);     
-   }
-   return 0;
+   int n = atoi(argv[1]);
+   int i;
+   for (i=1;i<=n;i++)
+      fork();
+   printf("PHYTEC\n");
+   exit(0);
 }
